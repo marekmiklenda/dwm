@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -76,16 +76,16 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_h,      	setmfact,		{.f = -0.05} },
 	{ MODKEY,                       XK_l,      	setmfact,		{.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, 	zoom,			{0} },
-	{ MODKEY|ShiftMask,             XK_Tab,    	view,			{0} },
 	{ MODKEY,	                XK_Tab,    	shiftviewclients,	{ .i = +1 } },
+	{ MODKEY|ShiftMask,             XK_Tab,    	shiftviewclients,	{ .i = -1 }},
+	{ MODKEY|ControlMask,		XK_Tab,    	view,			{0} },
 	{ MODKEY,                       XK_c,      	killclient,		{0} },
 	{ MODKEY,                       XK_t,      	setlayout,		{.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      	setlayout,		{.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      	setlayout,		{.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  	setlayout,		{0} },
 	{ MODKEY|ShiftMask,             XK_space,  	togglefloating,		{0} },
-	{ MODKEY,                       XK_0,      	view,			{.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      	tag,			{.ui = ~0 } },
+	{ MODKEY,                       XK_eacute,     	view,			{.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_eacute,     	tag,			{.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  	focusmon,		{.i = -1 } },
 	{ MODKEY,                       XK_period, 	focusmon,		{.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  	tagmon,			{.i = -1 } },
@@ -95,6 +95,11 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_ecaron,	1)
 	TAGKEYS(                        XK_scaron,	2)
 	TAGKEYS(                        XK_ccaron,	3)
+	TAGKEYS(                        XK_rcaron,	4)
+	TAGKEYS(                        XK_zcaron,	5)
+	TAGKEYS(                        XK_yacute,	6)
+	TAGKEYS(                        XK_aacute,	7)
+	TAGKEYS(                        XK_iacute,	8)
 };
 
 /* button definitions */
