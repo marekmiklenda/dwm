@@ -63,6 +63,8 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", DMENU_ARGS, NULL };
 static const char *appmenucmd[] = { "appmenu", "$HOME/.config/appmenu/", DMENU_ARGS, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
+static const char *dunstclose[] = { "dunstctl", "close-all", NULL };
+static const char *dunsthist[] = { "dunstctl", "history-pop", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        	function        	argument */
@@ -103,6 +105,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_yacute,	6)
 	TAGKEYS(                        XK_aacute,	7)
 	TAGKEYS(                        XK_iacute,	8)
+	{ MODKEY,			XK_Escape,	spawn,			{.v = dunstclose } },
+	{ MODKEY|ShiftMask,		XK_Escape,	spawn,			{.v = dunsthist } },
 };
 
 /* button definitions */
