@@ -5,17 +5,20 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=14" };
-static const char dmenufont[]       = "monospace:size=14";
-static const char col_gray1[]       = "#333333";
-static const char col_gray2[]       = "#333333";
-static const char col_gray3[]       = "#FFFFFF";
-static const char col_gray4[]       = "#FFFFFF";
-static const char col_cyan[]        = "#666666";
+static const char *fonts[]          = { "monospace:size=12" };
+static const char dmenufont[]       = "monospace:size=12";
+
+#define NorFG "#FFFFFF"
+#define NorBG "#111222"
+#define NorBo "#333333"
+#define SelFG "#FFFFFF"
+#define SelBG "#28284D"
+#define SelBo "#666666"
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { NorFG, NorBG, NorBo },
+	[SchemeSel]  = { SelFG, SelBG, SelBo },
 };
 
 /* tagging */
@@ -56,9 +59,9 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/bash", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *appmenucmd[] = { "appmenu", "$HOME/.config/appmenu/", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+#define DMENU_ARGS "-m", "0", "-fn", dmenufont, "-nb", NorBG, "-nf", NorFG, "-sb", SelBG, "-sf", SelFG
+static const char *dmenucmd[] = { "dmenu_run", DMENU_ARGS, NULL };
+static const char *appmenucmd[] = { "appmenu", "$HOME/.config/appmenu/", DMENU_ARGS, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
