@@ -1,10 +1,18 @@
 /* See LICENSE file for copyright and license details. */
+#define str_(s) #s
+#define str(s) str_(s)
+
+#define PadV 5
+#define DmenuW 1910	// Width of dmenu
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int gappx	    = 5;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int vertpad	    = PadV;
+static const int sidepad	    = PadV;
 static const char *fonts[]          = { "Ori:monospace:size=18", "monospace:size=14" };
 static const char dmenufont[]       = "Ori:monospace:size=18";
 
@@ -59,8 +67,8 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/bash", "-c", cmd, NULL } }
 
 /* commands */
-#define DMENU_ARGS "-m", "0", "-fn", dmenufont, "-nb", NorBG, "-nf", NorFG, "-sb", SelBG, "-sf", SelFG
-static const char *dmenucmd[] = { "dmenu_run", DMENU_ARGS, NULL };
+#define DMENU_ARGS "-x", str(PadV), "-y", str(PadV), "-z", str(DmenuW), "-m", "0", "-fn", dmenufont, "-nb", NorBG, "-nf", NorFG, "-sb", SelBG, "-sf", SelFG
+static const char *dmenucmd[] = { "/usr/local/bin/dmenu_run", DMENU_ARGS, NULL };
 static const char *appmenucmd[] = { "appmenu", "$HOME/.config/appmenu/", DMENU_ARGS, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *dunstclose[] = { "dunstctl", "close-all", NULL };
