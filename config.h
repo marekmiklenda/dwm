@@ -9,11 +9,11 @@ static const char *fonts[]          = { "Ori:monospace:size=18", "monospace:size
 static const char dmenufont[]       = "Ori:monospace:size=18";
 
 #define NorFG "#FFFFFF"
-#define NorBG "#111222"
-#define NorBo "#333333"
+#define NorBG "#4B1D9C"
+#define NorBo "#000000"
 #define SelFG "#FFFFFF"
-#define SelBG "#28284D"
-#define SelBo "#666666"
+#define SelBG "#AA48FF"
+#define SelBo "#333333"
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
